@@ -17,6 +17,12 @@ apps/*
 
 # Some general ignore patterns
 
+*/bin/*
+!*/bin/data/
+# for bin folder in root
+/bin/*
+!/bin/data/
+
 build/
 obj/
 *.o

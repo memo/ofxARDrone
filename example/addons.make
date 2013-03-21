@@ -3,3 +3,5 @@ ofxNetwork
 ofxOpenCv
 ofxOsc
 ofxXmlSettings
+ofxARDrone
+ofxARDroneOscBridge
