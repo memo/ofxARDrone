@@ -8,7 +8,7 @@
 //
 
 #include "ofxARDroneController.h"
-#include "ofxARDRone.h"
+#include "ofxARDrone.h"
 
 namespace ofxARDrone {
     
