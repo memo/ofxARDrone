@@ -45,7 +45,6 @@ void testApp::setup(){
     
     // setup osc so we can send & receive commands from another app to this one, to forward onto the drone (OPTIONAL)
     droneOsc.setup(&drone, 8000, 9000);
-    
 }
 
 //--------------------------------------------------------------
@@ -174,6 +173,7 @@ void testApp::keyPressed(int key){
     switch(key) {
         case '1': drone.controller.exitBootstrap(); break;
         case '2': drone.controller.sendAck(); break;
+        case '3': drone.dataReceiver.sendDummyPacket(); break;
         case '0': drone.controller.resetCommunicationWatchdog(); break;
 
         case 't': drone.controller.takeOff(!drone.state.isTakingOff(), 3000); break;
