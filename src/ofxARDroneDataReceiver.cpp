@@ -58,14 +58,14 @@ namespace ofxARDrone {
     
     //--------------------------------------------------------------
     void DataReceiver::update() {
-        char udpMessage[100000];
-        udpReceiver.Receive(udpMessage, 100000);
+        char udpMessage[65535];
+        udpReceiver.Receive(udpMessage, 65535);
         string message=udpMessage;
         if(message != "") {
             printf("sdfdf");
             commandHistory.push_front(message);
         } else {
-//            sendDummyPacket();
+            sendDummyPacket();
         }
     }
     
