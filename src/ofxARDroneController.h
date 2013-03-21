@@ -23,7 +23,7 @@
 #include "ofxMSABitField.h"
 #include "ofxMSAHistory.h"
 
-#include "ofxArDroneCommand.h"
+#include "ofxARDroneCommand.h"
 
 
 namespace ofxARDrone {

@@ -20,6 +20,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include <assert.h>
 
 namespace ofxARDrone {
     
