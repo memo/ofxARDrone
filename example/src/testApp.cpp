@@ -182,6 +182,7 @@ void testApp::keyPressed(int key){
         case 'm': drone.controller.calibrateMagnetometer(!drone.state.isCalibratingMagnetometer(), 3000); break;
         case 'p': doPause ^= true; break;
             
+        case 'e': drone.controller.emergency(0); break;
         case 'E': drone.controller.emergency(1); break;
 
         case 'r': droneSimulator.reset(); break;

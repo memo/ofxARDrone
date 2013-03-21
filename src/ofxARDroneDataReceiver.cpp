@@ -65,7 +65,7 @@ namespace ofxARDrone {
             printf("sdfdf");
             commandHistory.push_front(message);
         } else {
-            sendDummyPacket();
+//            sendDummyPacket();
         }
     }
     
