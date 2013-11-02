@@ -154,11 +154,18 @@ void testApp::draw(){
     
     ofxARDrone::State &state = drone.state;
     string stateString = "";
-    stateString += "isFlying : " + ofToString(state.isFlying()) + ", " + ofToString(state.isFlyingMillis()) + "\n";
+    stateString += "isFlying : " + ofToString(state.isFlying()) + "\n";
     stateString += "isTakingOff : " + ofToString(state.isTakingOff()) + ", " + ofToString(state.isTakingOffMillis()) + "\n";
     stateString += "isLanding : " + ofToString(state.isLanding()) + ", " + ofToString(state.isLandingMillis()) + "\n";
     stateString += "isCalibratingHorizontal : " + ofToString(state.isCalibratingHorizontal()) + ", " + ofToString(state.isCalibratingHorizontalMillis()) + "\n";
     stateString += "isCalibratingMagnetometer : " + ofToString(state.isCalibratingMagnetometer()) + ", " + ofToString(state.isCalibratingMagnetometerMillis()) + "\n";
+
+    
+    stateString += "\n\nisConnected: " + ofToString(state.isConnected()) + ", " + ofToString(state.isCalibratingMagnetometerMillis()) + "\n";
+    stateString += "altitude: "+ ofToString(state.getAltitude())+"\n";
+    stateString += "emergency state: "+ ofToString(state.inEmergencyMode())+"\n";
+    stateString += "battery level: "+ ofToString(state.getBatteryPercentage())+"%\n";
+    stateString += "vx: "+ ofToString(state.getVx())+" vy: "+ ofToString(state.getVy())+" vz: "+ ofToString(state.getVz())+"\n";
     
     ofSetColor(0, 200, 0);
     ofDrawBitmapString(controllerString, 10, 30);

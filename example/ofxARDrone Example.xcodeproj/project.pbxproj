@@ -20,7 +20,6 @@
 		879a251454401bc0b6e4f238fc63135b /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = d9bffbbf4cc43dee890b3c3e8f7d792c /* OscTypes.cpp */; };
 		8f5205aef8861ef234f0651aba6be2ee /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292bfc87a0144bd32c66f3adb20 /* ofxOscSender.cpp */; };
 		960d20b191346612d5c05a6af838c285 /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = bf88f02779dd820913acea06f63c5b7e /* ofxTCPClient.cpp */; };
-		BB5DF35716FAA12F006A81B5 /* ofxARDroneOscBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB5DF35516FAA12F006A81B5 /* ofxARDroneOscBridge.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		BBAF1301167B99E300DA901F /* ofxARDrone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBAF12F1167B99E300DA901F /* ofxARDrone.cpp */; };
 		BBAF1302167B99E300DA901F /* ofxARDroneCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBAF12F3167B99E300DA901F /* ofxARDroneCommand.cpp */; };
@@ -29,6 +28,7 @@
 		BBAF1305167B99E300DA901F /* ofxARDroneSimulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBAF12F9167B99E300DA901F /* ofxARDroneSimulator.cpp */; };
 		BBAF1306167B99E300DA901F /* ofxARDroneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBAF12FB167B99E300DA901F /* ofxARDroneState.cpp */; };
 		BBAF1307167B99E300DA901F /* ofxPhysicalNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBAF12FF167B99E300DA901F /* ofxPhysicalNode.cpp */; };
+		DDF289671824778E008D94CF /* ofxARDroneOscBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF289611824747C008D94CF /* ofxARDroneOscBridge.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -111,9 +111,6 @@
 		8c75afc8774a62495dd5346429f6f666 /* ofxOscReceiver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscReceiver.h; path = ../../../addons/ofxOsc/src/ofxOscReceiver.h; sourceTree = SOURCE_ROOT; };
 		9bf3aa0d4faa89d0f8a0e545403162be /* OscReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		9f7986dc4eb05e75fce2c777500fdc01 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
-		BB5DF34F16FAA12F006A81B5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		BB5DF35516FAA12F006A81B5 /* ofxARDroneOscBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxARDroneOscBridge.cpp; sourceTree = "<group>"; };
-		BB5DF35616FAA12F006A81B5 /* ofxARDroneOscBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxARDroneOscBridge.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		BBAF12F1167B99E300DA901F /* ofxARDrone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxARDrone.cpp; sourceTree = "<group>"; };
 		BBAF12F2167B99E300DA901F /* ofxARDrone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxARDrone.h; sourceTree = "<group>"; };
@@ -131,6 +128,8 @@
 		BBAF12FE167B99E300DA901F /* ofxMSAHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMSAHistory.h; sourceTree = "<group>"; };
 		BBAF12FF167B99E300DA901F /* ofxPhysicalNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPhysicalNode.cpp; sourceTree = "<group>"; };
 		BBAF1300167B99E300DA901F /* ofxPhysicalNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxPhysicalNode.h; sourceTree = "<group>"; };
+		DDF289611824747C008D94CF /* ofxARDroneOscBridge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxARDroneOscBridge.cpp; sourceTree = "<group>"; };
+		DDF289621824747C008D94CF /* ofxARDroneOscBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxARDroneOscBridge.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -283,19 +282,9 @@
 		BB5DF34E16FAA12F006A81B5 /* ofxARDroneOscBridge */ = {
 			isa = PBXGroup;
 			children = (
-				BB5DF34F16FAA12F006A81B5 /* .gitignore */,
-				BB5DF35416FAA12F006A81B5 /* src */,
+				DDF289601824747C008D94CF /* src */,
 			);
 			path = ofxARDroneOscBridge;
-			sourceTree = "<group>";
-		};
-		BB5DF35416FAA12F006A81B5 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				BB5DF35516FAA12F006A81B5 /* ofxARDroneOscBridge.cpp */,
-				BB5DF35616FAA12F006A81B5 /* ofxARDroneOscBridge.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
@@ -350,6 +339,16 @@
 			);
 			name = ofxARDrone;
 			path = ../src;
+			sourceTree = "<group>";
+		};
+		DDF289601824747C008D94CF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DDF289611824747C008D94CF /* ofxARDroneOscBridge.cpp */,
+				DDF289621824747C008D94CF /* ofxARDroneOscBridge.h */,
+			);
+			name = src;
+			path = ../../../ofxARDroneOscBridge/src;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -487,6 +486,8 @@
 /* Begin PBXProject section */
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxARDrone Example" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -563,6 +564,7 @@
 				c4782ecc372420ace0615b749e1d0d6b /* OscPrintReceivedElements.cpp in Sources */,
 				0546d1a38e13bd319cc9755b5ca7e1a0 /* OscReceivedElements.cpp in Sources */,
 				879a251454401bc0b6e4f238fc63135b /* OscTypes.cpp in Sources */,
+				DDF289671824778E008D94CF /* ofxARDroneOscBridge.cpp in Sources */,
 				BBAF1301167B99E300DA901F /* ofxARDrone.cpp in Sources */,
 				BBAF1302167B99E300DA901F /* ofxARDroneCommand.cpp in Sources */,
 				BBAF1303167B99E300DA901F /* ofxARDroneController.cpp in Sources */,
@@ -570,7 +572,6 @@
 				BBAF1305167B99E300DA901F /* ofxARDroneSimulator.cpp in Sources */,
 				BBAF1306167B99E300DA901F /* ofxARDroneState.cpp in Sources */,
 				BBAF1307167B99E300DA901F /* ofxPhysicalNode.cpp in Sources */,
-				BB5DF35716FAA12F006A81B5 /* ofxARDroneOscBridge.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,8 +902,13 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "ofxARDrone ExampleDebug";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -987,8 +993,13 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "ofxARDrone Example";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

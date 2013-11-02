@@ -55,8 +55,7 @@ namespace ofxARDrone {
 
     protected:
         Drone *drone;
-        ofxUDPManager udpReceiver;
-        ofxUDPManager udpSender;
+        ofxUDPManager udp;
         
         void update();
     };
