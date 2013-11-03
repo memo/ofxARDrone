@@ -23,9 +23,9 @@ namespace ofxARDrone {
     
     
     //--------------------------------------------------------------
-    void State::setFlying(bool b) {
-        ofLogVerbose("ofxARDrone::State::setFlying - " + ofToString(b));
-        bFlying.set(b, 0);
+    void State::setConnected(bool b, int revertMillis){
+        ofLogVerbose("ofxARDrone::State::setConnected - " + ofToString(b) + ", " + ofToString(revertMillis));
+        bConnected.set(b, revertMillis, true);
     }
     
     //--------------------------------------------------------------
@@ -34,9 +34,7 @@ namespace ofxARDrone {
         
         bTakingOff.set(b, revertMillis);
         
-        // if taking off, assume flying (HACK! TODO: read from navdata)
         if(bTakingOff.get()) {
-            setFlying(true);
             setLanding(false, 0);
         }
     }
@@ -45,9 +43,6 @@ namespace ofxARDrone {
     //--------------------------------------------------------------
     void State::setLanding(bool b, int revertMillis) {
         ofLogVerbose("ofxARDrone::State::setLanding - " + ofToString(b) + ", " + ofToString(revertMillis));
-        
-        // if was landing, and now isn't, assume not flying (HACK! TODO: read from navdata)
-        if(bLanding.get() == true && b == false) setFlying(false);
         
         bLanding.set(b, revertMillis);
         
@@ -68,7 +63,7 @@ namespace ofxARDrone {
     
     //--------------------------------------------------------------
     void State::update() {
-        bFlying.update();
+        bConnected.update();
         bTakingOff.update();
         bLanding.update();
         bCalibratingHorizontal.update();
@@ -81,8 +76,8 @@ namespace ofxARDrone {
     //--------------------------------------------------------------
     //--------------------------------------------------------------
     // if revertMillis is nonzero, automatically cancels state after this many milliseconds
-    void State::Parameter::set(bool b, int revertMillis) {
-        if(value != b) {
+    void State::Parameter::set(bool b, int revertMillis, bool resetTimer) {
+        if(value != b || resetTimer) {
             value = b;
             changeTimestamp = ofGetElapsedTimeMillis();
             revertTimestamp = revertMillis > 0 ? changeTimestamp + revertMillis : 0;

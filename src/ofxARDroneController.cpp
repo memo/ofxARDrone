@@ -175,6 +175,20 @@ namespace ofxARDrone {
         queueCommand(command);
     }
     
+    //--------------------------------------------------------------
+    void Controller::animation(animations anim, int speed){
+        if(speed == 0){
+            speed = AnimationDefaultDurations[anim];
+        }
+        
+        Command command;
+        command.setName("CONFIG");
+        command.addString("control:flight_anim");
+        command.addString(ofToString(anim,0)+","+ofToString(speed,0));
+        
+        //queueCommand("AT*CONFIG="+ofToString(drone->sequenceNumber++)+",\"control:flight_anim\",\""+ofToString(anim,0)+","+ofToString(speed,0)+"\"");
+    }
+    
     
     //--------------------------------------------------------------
     void Controller::calibrateHorizontal(bool b, int revertMillis ) {
@@ -195,7 +209,18 @@ namespace ofxARDrone {
     void Controller::exitBootstrap() {
         ofLogVerbose("ofxARDrone::Controller::exitBootstrap");
         
-        queueCommand("AT*CONFIG=\"general:navdata_demo\",\"TRUE\"");
+        Command configCommand;
+        configCommand.setName("CONFIG");
+        configCommand.addString("general:navdata_demo");
+        configCommand.addString("TRUE");
+        queueCommand(configCommand);
+
+//        queueCommand("AT*CONFIG="+ofToString(drone->sequenceNumber++)+",\"general:navdata_demo\",\"TRUE\"");
+        
+        Command command;
+        command.setName("CTRL");
+        command.addInt(5);
+        queueCommand(command);
     }
     
     

@@ -20,14 +20,17 @@ namespace ofxARDrone {
     
     //--------------------------------------------------------------
     void Command::addInt(uint32_t i) {
-        params.push_back(i);
+        params.push_back(ofToString(i));
     }
     
     //--------------------------------------------------------------
     void Command::addFloat(float f) {
-        // floats are stored in int memory space, as ints
-        assert(sizeof(uint32_t)==sizeof(float));
-        params.push_back(*(uint32_t*)(&f));
+        params.push_back(ofToString(*(uint32_t*)(&f)));
+    }
+
+    //--------------------------------------------------------------
+    void Command::addString(string s) {
+        params.push_back("\""+s+"\"");
     }
     
     //--------------------------------------------------------------
@@ -43,11 +46,11 @@ namespace ofxARDrone {
         s +=  ofToString(sequenceNumber);
         for(int i=0; i<params.size(); i++) {
             s += ",";
-            s += ofToString(params[i]);
+            s += params[i];
         }
 //        s += char(0x0A);
         
-        if(s.length()>=MAX_COMMAND_LENGTH) ofLogError("Drone::makeATCommand - length of ATCommand too long " + s.length());
+        if(s.length()>=MAX_COMMAND_LENGTH) ofLogError("Drone::makeATCommand - length of ATCommand too long " + ofToString(s.length()));
         return s;
     }
 
