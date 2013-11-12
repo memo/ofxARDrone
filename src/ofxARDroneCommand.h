@@ -20,6 +20,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include <assert.h>
 
 namespace ofxARDrone {
     
@@ -28,13 +29,14 @@ namespace ofxARDrone {
         void setName(string commandName);
         void addInt(uint32_t i);
         void addFloat(float f);
+        void addString(string s);
         void reset();
         
         string getString(uint32_t sequenceNumber);
         
     protected:
         string commandName;
-        vector<uint32_t> params; // parameters EXCLUDING sequence number
+        vector<string> params; // parameters EXCLUDING sequence number
     };
     
 }

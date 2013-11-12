@@ -50,10 +50,12 @@ namespace ofxARDrone {
 
         // for viewing and manipulation of command history (for debug purposes)
         msa::HistoryT<string> commandHistory;
+        
+        void sendDummyPacket();
 
     protected:
         Drone *drone;
-        ofxUDPManager udpReceiver;
+        ofxUDPManager udp;
         
         void update();
     };

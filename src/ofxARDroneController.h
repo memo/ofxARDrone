@@ -23,7 +23,8 @@
 #include "ofxMSABitField.h"
 #include "ofxMSAHistory.h"
 
-#include "ofxArDroneCommand.h"
+#include "ofxARDroneConstants.h"
+#include "ofxARDroneCommand.h"
 
 
 namespace ofxARDrone {
@@ -55,6 +56,9 @@ namespace ofxARDrone {
         void calibrateMagnetometer(bool b, int revertMillis);    // if revertMillis is nonzero, automatically cancels state after this many milliseconds
         
         void emergency(int on);
+        
+        // Perform premade animation. Set speed to 0 to use default duration.
+        void animation(animations anim, int speed);
         
         
         //--------------------------------------------------------------

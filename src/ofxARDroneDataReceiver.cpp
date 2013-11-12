@@ -32,26 +32,58 @@ namespace ofxARDrone {
         
         if(drone == NULL) { ofLogError("   Drone is NULL"); return; }
 
-        udpReceiver.Create();
-        udpReceiver.Bind(drone->commInfo.navDataPort);
-        udpReceiver.SetNonBlocking(true);
+        
+        udp.Create();
+        udp.Connect(drone->commInfo.hostip.c_str(), drone->commInfo.navDataPort);
+        udp.SetNonBlocking(true);
+        udp.SetEnableBroadcast(true);
+    }
+    
+    //--------------------------------------------------------------
+    void DataReceiver::sendDummyPacket() {
+        int i = 1;
+        udp.Send((const char*)&i, 4);
     }
     
     
     //--------------------------------------------------------------
     void DataReceiver::close() {
         ofLogVerbose("ofxARDrone::DataReceiver::close");
-        udpReceiver.Close();
+        udp.Close();
     }
+    
+    
     
     //--------------------------------------------------------------
     void DataReceiver::update() {
-        char udpMessage[100000];
-        udpReceiver.Receive(udpMessage, 100000);
-        string message=udpMessage;
-        if(message != "") {
-            printf("sdfdf");
-            commandHistory.push_front(message);
+        
+        int cnt = 0;
+        char udpMessage[65535];
+        
+        int ret = udp.Receive(udpMessage, 65535);
+        while(ret >= 24){;
+            cnt ++;
+            //cout<<"Received "<<ret<<" bytes"<<endl;
+            
+            drone->state.setConnected(true, 2000);
+            
+            //Read the drone status from the received data
+            drone->state.bDroneStatus = *(DRONE_STATUS*)&udpMessage[0];
+            
+            //If the NAVDATA is send, then load it
+            if(drone->state.getState(ARDRONE_NAVDATA_BOOTSTRAP) == false){
+                drone->state.bNavData = *(NAVDATA*)&udpMessage[16];
+            } else {
+                //Otherwise exit bootstrap
+                drone->controller.exitBootstrap();
+            }
+            
+            ret = udp.Receive(udpMessage, 65535);
+        };
+        
+        //No data received, send a dummy packet to (re)start communication
+        if(!cnt){
+            sendDummyPacket();
         }
     }
     

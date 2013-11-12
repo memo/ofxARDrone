@@ -45,7 +45,6 @@ void testApp::setup(){
     
     // setup osc so we can send & receive commands from another app to this one, to forward onto the drone (OPTIONAL)
     droneOsc.setup(&drone, 8000, 9000);
-    
 }
 
 //--------------------------------------------------------------
@@ -155,11 +154,18 @@ void testApp::draw(){
     
     ofxARDrone::State &state = drone.state;
     string stateString = "";
-    stateString += "isFlying : " + ofToString(state.isFlying()) + ", " + ofToString(state.isFlyingMillis()) + "\n";
+    stateString += "isFlying : " + ofToString(state.isFlying()) + "\n";
     stateString += "isTakingOff : " + ofToString(state.isTakingOff()) + ", " + ofToString(state.isTakingOffMillis()) + "\n";
     stateString += "isLanding : " + ofToString(state.isLanding()) + ", " + ofToString(state.isLandingMillis()) + "\n";
     stateString += "isCalibratingHorizontal : " + ofToString(state.isCalibratingHorizontal()) + ", " + ofToString(state.isCalibratingHorizontalMillis()) + "\n";
     stateString += "isCalibratingMagnetometer : " + ofToString(state.isCalibratingMagnetometer()) + ", " + ofToString(state.isCalibratingMagnetometerMillis()) + "\n";
+
+    
+    stateString += "\n\nisConnected: " + ofToString(state.isConnected()) + ", " + ofToString(state.isCalibratingMagnetometerMillis()) + "\n";
+    stateString += "altitude: "+ ofToString(state.getAltitude())+"\n";
+    stateString += "emergency state: "+ ofToString(state.inEmergencyMode())+"\n";
+    stateString += "battery level: "+ ofToString(state.getBatteryPercentage())+"%\n";
+    stateString += "vx: "+ ofToString(state.getVx())+" vy: "+ ofToString(state.getVy())+" vz: "+ ofToString(state.getVz())+"\n";
     
     ofSetColor(0, 200, 0);
     ofDrawBitmapString(controllerString, 10, 30);
@@ -174,6 +180,7 @@ void testApp::keyPressed(int key){
     switch(key) {
         case '1': drone.controller.exitBootstrap(); break;
         case '2': drone.controller.sendAck(); break;
+        case '3': drone.dataReceiver.sendDummyPacket(); break;
         case '0': drone.controller.resetCommunicationWatchdog(); break;
 
         case 't': drone.controller.takeOff(!drone.state.isTakingOff(), 3000); break;
@@ -182,6 +189,7 @@ void testApp::keyPressed(int key){
         case 'm': drone.controller.calibrateMagnetometer(!drone.state.isCalibratingMagnetometer(), 3000); break;
         case 'p': doPause ^= true; break;
             
+        case 'e': drone.controller.emergency(0); break;
         case 'E': drone.controller.emergency(1); break;
 
         case 'r': droneSimulator.reset(); break;
