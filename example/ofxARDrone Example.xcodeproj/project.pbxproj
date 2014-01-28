@@ -487,6 +487,8 @@
 /* Begin PBXProject section */
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxARDrone Example" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -614,7 +616,7 @@
 					../../../addons/ofxKinect/libs/libusb/osx,
 					../../../addons/ofxKinect/libs/libusb/osx/include,
 					"../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0",
-					../../../addons/ofxKinect/libs/libusb/osx/libs,
+					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx",
 					../../../addons/ofxKinect/libs/libusb/win,
 					../../../addons/ofxKinect/libs/libusb/win/inf,
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
@@ -695,7 +697,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_LIBS)",
-					"../../../addons/ofxKinect/libs/libusb/osx/libs/usb-1.0.a",
+					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a",
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
 				SDKROOT = macosx;
@@ -732,7 +734,7 @@
 					../../../addons/ofxKinect/libs/libusb/osx,
 					../../../addons/ofxKinect/libs/libusb/osx/include,
 					"../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0",
-					../../../addons/ofxKinect/libs/libusb/osx/libs,
+					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx",
 					../../../addons/ofxKinect/libs/libusb/win,
 					../../../addons/ofxKinect/libs/libusb/win/inf,
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
@@ -813,7 +815,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_LIBS)",
-					"../../../addons/ofxKinect/libs/libusb/osx/libs/usb-1.0.a",
+					"../../../addons/ofxKinect/libs/libusb-1.0/lib/osx/usb-1.0.a",
 					../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
 				SDKROOT = macosx;
